@@ -1,8 +1,10 @@
 'use strict';
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
 
-const uri = "mongodb+srv://matteo:6724@testcluster1-wfwr8.mongodb.net/test?retryWrites=true&w=majority";
+
+const uri = process.env.REACT_APP_DB_CONNECTION
 const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
 
