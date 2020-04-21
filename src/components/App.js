@@ -30,6 +30,8 @@ function App() {
     <>
       <GlobalStyles />
 
+      <h2> admin login</h2>
+
       <Centered>
         <TicketWidget />
       </Centered>

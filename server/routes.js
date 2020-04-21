@@ -25,14 +25,6 @@ for (let r = 0; r < row.length; r++) {
 }
 // ----------------------------------
 
-
-
-
-router.post('/', checkDb);
-
-
-router.get('/api/seat-availability', getSeats);
-
 // router.get('/api/seat-availability', (req, res) => {
 //   return res.json({
 //     seats: seats,
@@ -41,23 +33,17 @@ router.get('/api/seat-availability', getSeats);
 //   });
 // });
 
-// router.post('/api/book-seat', async (req, res) => {
-//   const { seatId, creditCard, expiration } = req.body;
+router.get('/api/seat-availability', getSeats)
 
-//   console.log(seatId)
+// router.get('/login', handleLogin);
 
-//   if (!creditCard || !expiration) {
-//     return res.status(400).json({
-//       status: 400,
-//       message: 'Please provide credit card information!',
-//     });
-//   }
+router.post('/api/book-seat', bookSeat);
 
-//   return res.status(200).json({
-//     status: 200,
-//     success: true,
-//   });
-// });
+
+router.post('/', checkDb);
+
+
+router.get('/api/seat-availability', getSeats);
 
 router.post('/api/book-seat', bookSeat);
 

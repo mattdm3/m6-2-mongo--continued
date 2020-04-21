@@ -8,8 +8,6 @@ import { getRowName, getSeatNum, encodeSeatId } from '../helpers';
 import UnstyledButton from './UnstyledButton';
 import { BookingContext } from './BookingContext';
 
-
-//couldn't not style that tippy. 
 const StyledTippy = styled(Tippy)`
   color: white; 
   background: #333333;
@@ -19,7 +17,6 @@ const StyledTippy = styled(Tippy)`
   border-radius: 5px; 
   font-weight: 700; 
 `
-
 const Seat = ({ rowIndex, seatIndex, width, height, price, status }) => {
   const {
     actions: { beginBookingProcess },
@@ -28,7 +25,11 @@ const Seat = ({ rowIndex, seatIndex, width, height, price, status }) => {
   const rowName = getRowName(rowIndex);
   const seatNum = getSeatNum(seatIndex);
 
+
+
   const seatId = encodeSeatId(rowIndex, seatIndex);
+
+  //couldn't not style that tippy. 
 
 
 
