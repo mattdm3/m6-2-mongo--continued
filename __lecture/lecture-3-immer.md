@@ -21,15 +21,6 @@ function reducer(state, action) {
     return state;
   }
 }
-
-corrected: 
-if (action.type === 'MAKE_FRIEND') {
-    return {
-      ...state,
-      bestFriend = action.gerald.firstName;
-  }
-
-
 ```
 
 ---
@@ -51,25 +42,6 @@ function reducer(state, action) {
     return state;
   }
 }
-
-corrected: 
-
-function reducer(state, action) {
-  if (action.type === 'ADD_KETCHUP') {
-    return {
-      ...state,
-      state.burgerToppings: [
-        ...state.burgerToppings,
-        "ketchup"
-      ]; 
-    }
-  }
-}
-
-or: 
-
-function reducer(state, action) {   
-  if (action.type === 'ADD_KETCHUP') {     let newState = state;     newState.burgerToppings.push('ketchup');     return {...newState}   } } 
 ```
 
 ---
@@ -105,8 +77,6 @@ function reducer(state, action) {
     return state;
   }
 }
-
-// very complicated solution(don't have it here);
 ```
 
 ---
@@ -155,17 +125,6 @@ function reducer(state, action) {
     return state;
   }
 }
-
-with immer: 
-
-function reducer(state, action) {
-  if (action.type === 'MAKE_FRIEND') {
-    return produce(state, draftstate => {
-      draftstate.bestFriend = action.geral.firstName; 
-    })
-  }
-}
-
 ```
 
 ---
@@ -185,16 +144,6 @@ function reducer(state, action) {
   if (action.type === 'ADD_KETCHUP') {
     state.burgerToppings.push('ketchup');
     return state;
-  }
-}
-
-w immer
-
-function reducer(state, action) {
-  if (action.type === 'ADD_KETCHUP') {
-    return produce(state, draftstate => {
-      draftstate.burgerToppings.push('ketchup')
-    })
   }
 }
 ```
@@ -230,18 +179,6 @@ function reducer(state, action) {
     return state;
   }
 }
-
-w immer 
-
-function reducer(state, action) {
-  if (action.type === 'REMOVE_RACER_FROM_TEAM') {
-    return produce(state, draftstate => {
-      delete draftstate.competitors[teamId].racers[racerName];
-    })
-  }
-}
-
-
 ```
 
 ---

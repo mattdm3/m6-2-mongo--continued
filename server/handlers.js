@@ -2,6 +2,7 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
+const getSeats = async (req, res) => { };
 
 
 const uri = process.env.REACT_APP_DB_CONNECTION

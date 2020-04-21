@@ -8,18 +8,6 @@ import { getRowName, getSeatNum, encodeSeatId } from '../helpers';
 import UnstyledButton from './UnstyledButton';
 import { BookingContext } from './BookingContext';
 
-
-//couldn't not style that tippy. 
-const StyledTippy = styled(Tippy)`
-  color: white; 
-  background: #333333;
-  padding: 0; 
-  margin: 0;
-  height: 55px;  
-  border-radius: 5px; 
-  font-weight: 700; 
-`
-
 const Seat = ({ rowIndex, seatIndex, width, height, price, status }) => {
   const {
     actions: { beginBookingProcess },
@@ -30,22 +18,20 @@ const Seat = ({ rowIndex, seatIndex, width, height, price, status }) => {
 
   const seatId = encodeSeatId(rowIndex, seatIndex);
 
-
-
   return (
-    <StyledTippy content={`Row ${rowName}, Seat ${seatNum} – $${price}`}>
+    <Tippy content={`Row ${rowName}, Seat ${seatNum} – $${price}`}>
       <Wrapper
         disabled={status === 'unavailable'}
         onClick={() => {
           beginBookingProcess({ seatId, price });
         }}
       >
-        <VisuallyHidden >
+        <VisuallyHidden>
           Seat number {seatNum} in Row {rowName}
         </VisuallyHidden>
         <img src={seatImageSrc} alt='' style={{ width, height }} />
       </Wrapper>
-    </StyledTippy>
+    </Tippy>
   );
 };
 
